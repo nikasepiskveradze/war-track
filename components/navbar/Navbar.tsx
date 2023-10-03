@@ -5,7 +5,10 @@ const Navbar = () => {
   return (
     <div className="flex items-center py-6 px-6 container mx-auto justify-between">
       <div>
-        <Link href="/" className="font-bold text-3xl tracking-widest">
+        <Link
+          href="https://war-track.com/"
+          className="font-bold text-3xl tracking-widest"
+        >
           WAR TRACK
         </Link>
       </div>
@@ -19,7 +22,7 @@ const Navbar = () => {
           Docs
         </Link>
         <Link
-          href="https://github.com/nikasepiskveradze/war-track-api"
+          href="https://github.com/nikasepiskveradze/war-track"
           target="_blank"
           className="ml-5 font-bold text-blue-500"
         >
@@ -30,7 +33,7 @@ const Navbar = () => {
           target="_blank"
           className="ml-5 font-bold text-blue-500"
         >
-          Swagger
+          API
         </Link>
       </div>
     </div>
