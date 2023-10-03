@@ -11,7 +11,9 @@
   "dependencies": {
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-tailwindcss-datepicker": "^1.6.6",
+    "unstated-next": "^1.1.0"
   },
   "devDependencies": {
     "@types/node": "latest",
