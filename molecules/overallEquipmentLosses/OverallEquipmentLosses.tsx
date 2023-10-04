@@ -7,7 +7,10 @@ const OverallEquipmentLosses = () => {
 
   return (
     <div>
-      <h2 className="font-medium text-2xl">Overall Equipment Losses</h2>
+      <h2 className="font-medium text-2xl flex justify-center">
+        Oryx no longer making statistics, so it does not make sense to continue
+        this project
+      </h2>
     </div>
   );
 };
