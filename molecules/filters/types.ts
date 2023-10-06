@@ -1,4 +1,11 @@
+export enum CountryKeys {
+  All = 'all',
+  UA = 'ukraine',
+  RU = 'russia',
+}
+
 export const countries = [
-  { key: 'uk', value: 'Ukraine' },
-  { key: 'ru', value: 'Russia' },
+  { key: CountryKeys.All, value: 'All' },
+  { key: CountryKeys.UA, value: 'Ukraine' },
+  { key: CountryKeys.RU, value: 'Russia' },
 ];
