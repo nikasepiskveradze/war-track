@@ -14,7 +14,7 @@ const OverallEquipmentLosses = () => {
         Overall losses by country and equipment type
       </h2>
       <p className="font-medium text-sm text-center mb-8">
-        *Date range is not supported this chart
+        *Date range is not supported this chart, since it is overall data.
       </p>
 
       <OverallEquipmentChart />

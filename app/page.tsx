@@ -3,6 +3,7 @@ import OverallEquipmentLosses from '@/molecules/overallEquipmentLosses/OverallEq
 import Filters from '@/molecules/filters/Filters';
 import { FiltersProvider } from '@/molecules/filters/FiltersProvider';
 import { fetchEquipmentTypes } from '@/services/equipment.service';
+import EquipmentLossesDynamics from '@/molecules/equipmentLossesDynamics/EquipmentLossesDynamics';
 
 export default async function Home() {
   const equipmentTypes = await fetchEquipmentTypes();
@@ -14,6 +15,7 @@ export default async function Home() {
         <FiltersProvider equipmentTypes={equipmentTypes}>
           <Filters />
           <OverallEquipmentLosses />
+          <EquipmentLossesDynamics />
         </FiltersProvider>
       </div>
     </>

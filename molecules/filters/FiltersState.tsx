@@ -3,23 +3,36 @@ import { useState } from 'react';
 import { countries, CountryKeys } from '@/molecules/filters/types';
 import { SerializedEquipmentType } from '@/services/types';
 import { useQuery } from '@tanstack/react-query';
-import { fetchEquipments } from '@/services/equipment.service';
+import {
+  fetchEquipmentsLossesDynamic,
+  fetchEquipmentsTotalLosses,
+} from '@/services/equipment.service';
+import moment from 'moment';
 
 const useFilters = (initialState: SerializedEquipmentType[] = []) => {
   const [country, setCountry] = useState(CountryKeys.All as string);
   const [equipment, setEquipment] = useState('All Types');
 
   const [dateRange, setDateRange] = useState({
-    startDate: null,
-    endDate: null,
+    startDate: moment().startOf('year').format('YYYY-MM-DD'),
+    endDate: moment().format('YYYY-MM-DD'),
   });
 
-  const equipmentsQuery = useQuery({
-    queryKey: ['equipments', country, equipment],
+  const totalLossesQuery = useQuery({
+    queryKey: ['total-losses', country, equipment],
     queryFn: () =>
-      fetchEquipments({
+      fetchEquipmentsTotalLosses({
         ...(country === CountryKeys.All ? {} : { country }),
         types: [equipment],
+      }),
+  });
+
+  const lossesDynamicsQuery = useQuery({
+    queryKey: ['losses-dynamic', country, equipment, dateRange],
+    queryFn: () =>
+      fetchEquipmentsLossesDynamic(country, {
+        types: [equipment],
+        date: [dateRange.startDate, dateRange.endDate],
       }),
   });
 
@@ -32,7 +45,8 @@ const useFilters = (initialState: SerializedEquipmentType[] = []) => {
     setCountry,
     setEquipment,
     setDateRange,
-    equipmentsQuery,
+    totalLossesQuery,
+    lossesDynamicsQuery,
   };
 };
 

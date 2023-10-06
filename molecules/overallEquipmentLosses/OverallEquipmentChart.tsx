@@ -11,8 +11,8 @@ import {
 } from 'recharts';
 
 const OverallEquipmentChart = () => {
-  const { equipmentsQuery } = FiltersState.useContainer();
-  const { data } = equipmentsQuery;
+  const { totalLossesQuery } = FiltersState.useContainer();
+  const { data } = totalLossesQuery;
 
   return (
     <div className="flex justify-center">

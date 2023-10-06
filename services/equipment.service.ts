@@ -1,6 +1,14 @@
 import { API_URL } from '@/utils/api';
-import { EquipmentType, SerializedEquipmentType } from '@/services/types';
+import {
+  EquipmentItem,
+  EquipmentItemWithDate,
+  EquipmentType,
+  LossesDynamicsFilter,
+  SerializedEquipmentType,
+  TotalLossesFilter,
+} from '@/services/types';
 import axios from 'axios';
+import { CountryKeys } from '@/molecules/filters/types';
 
 export const fetchEquipmentTypes = async (): Promise<
   SerializedEquipmentType[]
@@ -11,7 +19,21 @@ export const fetchEquipmentTypes = async (): Promise<
   return equipmentTypes.map((item) => ({ key: item.type, value: item.type }));
 };
 
-export const fetchEquipments = async (filters: any) => {
+export const fetchEquipmentsTotalLosses = async (
+  filters: TotalLossesFilter,
+): Promise<EquipmentItem[]> => {
   const response = await axios.post(`${API_URL}/equipments`, filters);
+  return response.data;
+};
+
+export const fetchEquipmentsLossesDynamic = async (
+  country: string,
+  filters: LossesDynamicsFilter,
+): Promise<EquipmentItemWithDate[]> => {
+  const response = await axios.post(
+    `${API_URL}/equipments/${country}`,
+    filters,
+  );
+
   return response.data;
 };
