@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchEquipments } from '@/services/equipment.service';
 
 const useFilters = (initialState: SerializedEquipmentType[] = []) => {
-  const [country, setCountry] = useState(CountryKeys.All);
+  const [country, setCountry] = useState(CountryKeys.All as string);
   const [equipment, setEquipment] = useState('All Types');
 
   const [dateRange, setDateRange] = useState({
