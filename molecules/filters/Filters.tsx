@@ -1,8 +1,9 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import Select from '@/components/select/Select';
 import { FiltersState } from '@/molecules/filters/FiltersState';
 import Datepicker from 'react-tailwindcss-datepicker';
+import { configs } from '@/molecules/filters/helpers';
 
 const Filters = () => {
   const {
@@ -39,6 +40,9 @@ const Filters = () => {
           <span className="label-text">Pick date range</span>
         </label>
         <Datepicker
+          separator="to"
+          showShortcuts
+          showFooter
           primaryColor="blue"
           inputClassName="w-full border border-blue-500 rounded-md p-3"
           value={dateRange}
@@ -48,6 +52,7 @@ const Filters = () => {
               endDate: range?.endDate,
             })
           }
+          configs={configs}
         />
       </div>
     </div>
