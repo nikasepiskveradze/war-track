@@ -17,7 +17,7 @@ const Filters = () => {
   } = FiltersState.useContainer();
 
   return (
-    <div className="mb-4 flex items-center justify-around">
+    <div className="mb-4 flex items-center justify-around sticky border-b-2 pt-2 pb-8 top-0 bg-white z-10">
       <Select
         name="country"
         label="Search by country"
